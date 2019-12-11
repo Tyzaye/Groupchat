@@ -1,0 +1,12 @@
+import java.util.*;   
+
+public class MemberSorter {     
+  static ArrayList<Member> Member = new ArrayList<>();       
+  public MemberSorter(ArrayList<Member> Member) {         
+    MemberSorter.Member = Member;     
+  }       
+  public static ArrayList<Member> sortByTime() {         
+    Collections.sort(Member);         
+    return Member;     
+  } 
+}
