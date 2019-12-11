@@ -1,0 +1,79 @@
+
+
+/**
+ * 
+ */
+
+/**
+ * @author tyste
+ *
+ */
+public class ChatList {
+
+	private Node head; // front of list
+	private int size;
+
+	/**
+		* 
+		*/
+		public ChatList() {
+			size = 0;
+		}
+
+	/**
+	 * @return
+	 */
+	public int size() {
+		return size;
+	}
+
+	
+	public TextMessage insertFirst(Node n) {
+		if (isEmpty()) {
+			head = n;
+		} else {
+			n.next = head;
+			head = n;
+		}
+		size++;
+		return head.getElement();
+	}
+
+	/**
+	 * @return
+	 */
+	public TextMessage delete() {
+		Node remove = head;
+		if (!isEmpty())
+			head = head.next;
+		size--;
+		return remove.getElement();
+	}
+
+	/**
+	 * @return
+	 */
+	public TextMessage peek() {
+		return head.getElement();
+	}
+
+	/**
+	 * @return
+	 */
+	public String print() {
+		Node temp = head;
+		String tempString = "";
+		while (temp != null) {
+			tempString += temp.getElement();
+			temp = temp.next;
+		}
+		return tempString;
+	}
+
+	/**
+	 * @return
+	 */
+	public boolean isEmpty() {
+		return (size == 0);
+	}
+}
