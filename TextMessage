@@ -1,0 +1,48 @@
+/**
+ * 
+ */
+
+/**
+ * @author tyste
+ *
+ */
+public class TextMessage {
+	// TextMessage class
+	private String text;
+	private Member member;
+	private int time;
+
+	/**
+	 * @param t
+	 * @param m
+	 * @param time
+	 */
+	public TextMessage(String t, Member m, int time) {
+
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+}
