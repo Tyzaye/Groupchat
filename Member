@@ -1,0 +1,97 @@
+
+/**
+ * 
+ */
+
+/**
+ * @author tyste
+ *
+ */
+public class Member implements Comparable<Member> {
+//Member class
+	private String firstName;
+	private String lastName;
+	private String phoneNumber;
+	private int time;
+
+	/**
+	 * @param fname
+	 * @param lname
+	 * @param phoneNumber
+	 * @param t
+	 */
+	public Member(String fname, String lname, String phoneNumber, int t) {
+
+	}
+
+	/**
+	 * @return
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+
+	/**
+	 * @param firstName
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+
+	/**
+	 * @param lastName
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	/**
+	 * @param phoneNumber
+	 */
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getTime() {
+		return time;
+	}
+
+	/**
+	 * @param time
+	 */
+	public void setTime(int time) {
+		if (time >= 0000 & time <= 2400) {
+			this.time = time;
+		} else {
+			System.out.println("Invalid Time");
+		}
+	}
+
+	@Override
+	public int compareTo(Member other) {
+		return (this.getTime() < other.getTime() ? -1 : (this.getTime() == other.getTime() ? 0 : 1));
+	}
+	
+	 @Override     
+	  public String toString() {         
+	    return " First Name: " + this.firstName + ", Last Name: " + this.lastName + ", Phone Number:" + this.phoneNumber +
+	    		", Time: " + this.time;     
+	  } 
+}
