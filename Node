@@ -1,0 +1,30 @@
+
+/**
+ * @author tyste
+ *
+ */
+public class Node {
+
+	private TextMessage element; // data of object Node
+	public Node next; // pointer to next Node
+
+	/**
+	 * @param data
+	 */
+	public Node(TextMessage element) {
+		this.element = element;
+	}
+
+	/**
+	 * 
+	 */
+	public Node() {
+	}
+
+	/**
+	 * @return
+	 */
+	public TextMessage getElement() {
+		return element; // method to access data from Node object
+	}
+}
