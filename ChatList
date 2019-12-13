@@ -1,69 +1,99 @@
-/**
- * 
- */
 
 /**
  * @author tyste
  *
  */
-public class TextMessage {
-	// TextMessage class
-	private String text;
-	private Member member;
-	private int time;
+public class ChatList {
+
+	private Node head; // front of list
+	private int size;
 
 	/**
-	 * @param t
-	 * @param m
-	 * @param time
-	 */
-	public TextMessage(String t, Member m, int ti) {
-		text = t;
-		member = m;
-		time = ti;
-	}
-
-// getters and setters
-	/**
-	 * @return
-	 */
-	public String getText() {
-		return text;
-	}
-
-	/**
-	 * @param text
-	 */
-	public void setText(String text) {
-		this.text = text;
+		* 
+		*/
+	public ChatList() {
+		size = 0;
 	}
 
 	/**
 	 * @return
 	 */
-	public Member getMember() {
-		return member;
+	public int size() {
+		return size;
 	}
 
 	/**
-	 * @param member
+	 * @param n
+	 * @return
 	 */
-	public void setMember(Member member) {
-		this.member = member;
+	public TextMessage insertFirst(Node n) {
+		if (isEmpty()) {
+			head = n;
+		} else {
+			n.next = head;
+			head = n;
+		}
+		size++;
+		return head.getElement();
 	}
 
 	/**
 	 * @return
 	 */
-	public int getTime() {
-		return time;
+	public TextMessage deleteLastMessage() {
+		Node remove = head;
+		if (!isEmpty())
+			head = head.next;
+		size--;
+		return remove.getElement();
 	}
 
 	/**
-	 * @param time
+	 * @return
 	 */
-	public void setTime(int time) {
-		this.time = time;
+	public TextMessage deleteFirstMessage() {
+		if (head == null) {
+			return head.getElement();
+		}
+		Node tail = head;
+		Node previous = null;
+		while (tail.next != null) {
+			previous = tail;
+			tail = tail.next;
+		}
+		previous.next = null;
+		return tail.getElement();
 	}
 
+	/**
+	 * @return
+	 */
+	public TextMessage peek() {
+		return head.getElement();
+	}
+
+	/**
+	 * @return
+	 */
+	public String print() {
+		Node temp = head;
+		String tempString = "";
+		while (temp != null) { // Will print the data of the of member and their message
+			tempString += temp.getElement().getMember().getFirstName();
+			tempString += " ";
+			tempString += temp.getElement().getMember().getLastName();
+			tempString += " Messaged: ";
+			tempString += temp.getElement().getText();
+			tempString += "\n";
+			temp = temp.next;
+		}
+		return tempString;
+	}
+
+	/**
+	 * @return
+	 */
+	public boolean isEmpty() {
+		return (size == 0);
+	}
 }
