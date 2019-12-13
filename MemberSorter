@@ -33,7 +33,7 @@ public class MemberSorter implements Iterable {
 	 *
 	 */
 	@Override
-	public String toString() {
+	public String toString() { // Prints out the group chat members
 		return "List of Groupchat Members: [" + member + "]";
 	}
 
