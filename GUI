@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+
+/**
+ * @author tyste
+ *
+ */
 public class GUI {
 
 	private JFrame frame;
@@ -19,8 +24,12 @@ public class GUI {
 	private int count1 = 0;
 	private ArrayList<Member> groupChat = new ArrayList<Member>();
 	private ChatList Messages = new ChatList();
+
 	/**
 	 * Launch the application.
+	 */
+	/**
+	 * @param args
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -48,71 +57,73 @@ public class GUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setLayout(null);
-		
-		
-		
+
 		fNameText = new JTextField();
 		fNameText.setBounds(41, 48, 96, 20);
 		frame.getContentPane().add(fNameText);
 		fNameText.setColumns(10);
-		
+
 		lNameText = new JTextField();
 		lNameText.setBounds(166, 48, 96, 20);
 		frame.getContentPane().add(lNameText);
 		lNameText.setColumns(10);
-		
+
 		pNumberText = new JTextField();
 		pNumberText.setBounds(298, 48, 96, 20);
 		frame.getContentPane().add(pNumberText);
 		pNumberText.setColumns(10);
-		
+
 		JLabel lblNewLabel = new JLabel("Enter First Name:");
 		lblNewLabel.setBounds(41, 23, 96, 14);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Enter Last Name:");
 		lblNewLabel_1.setBounds(166, 23, 96, 14);
 		frame.getContentPane().add(lblNewLabel_1);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("Enter Phone Number:");
 		lblNewLabel_2.setBounds(298, 23, 130, 14);
 		frame.getContentPane().add(lblNewLabel_2);
-		
+
 		JLabel lblNewLabel_3 = new JLabel("Text Message:");
 		lblNewLabel_3.setBounds(41, 225, 153, 14);
 		frame.getContentPane().add(lblNewLabel_3);
-		
+
 		textMessage = new JTextField();
 		textMessage.setBounds(41, 264, 221, 25);
 		frame.getContentPane().add(textMessage);
 		textMessage.setColumns(10);
-		
+
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(298, 120, 354, 181);
 		frame.getContentPane().add(textArea);
-		
+
 		JLabel texts = new JLabel("Texts:");
 		texts.setBounds(181, 321, 96, 14);
 		frame.getContentPane().add(texts);
-		
+
 		JTextArea textArea2 = new JTextArea();
 		textArea2.setBounds(298, 316, 285, 154);
 		frame.getContentPane().add(textArea2);
-		
+
 		JButton btnTextButton = new JButton("Send Text");
 		btnTextButton.addActionListener(new ActionListener() {
+			/**
+			 *
+			 */
 			public void actionPerformed(ActionEvent e) {
-				int max = 2400; int min = 1;
+				int max = 2400;
+				int min = 1;
 				String message = "";
 				String text = textMessage.getText();
-				int time = (int) ((Math.random()* ((max - min) + 1)) + min);
+				int time = (int) ((Math.random() * ((max - min) + 1)) + min);
 				if (count1 < count) {
-				Member member = groupChat.get(count1);
-				count1++;
-				TextMessage newMessage = new TextMessage(text, member, time);
-				Node newNode = new Node(newMessage);
-				Messages.insertFirst(newNode);
-				message += Messages.print() + " ";
+					Member member = groupChat.get(count1);
+					count1++;
+					TextMessage newMessage = new TextMessage(text, member, time);
+					Node newNode = new Node(newMessage);
+					Messages.insertFirst(newNode);
+					message += Messages.print() + " ";
 				} else {
 					message += "Member not found ";
 				}
@@ -122,25 +133,29 @@ public class GUI {
 		});
 		btnTextButton.setBounds(41, 317, 130, 23);
 		frame.getContentPane().add(btnTextButton);
-		
+
 		JLabel firstNameLbl = new JLabel("Group Members:");
 		firstNameLbl.setBounds(186, 117, 122, 30);
 		frame.getContentPane().add(firstNameLbl);
-		
+
 		JLabel userFNameLbl = new JLabel("");
 		userFNameLbl.setBounds(434, 430, 161, 140);
 		frame.getContentPane().add(userFNameLbl);
 
-		
 		JButton addMemberButton = new JButton("Enter Chat");
 		addMemberButton.addActionListener(new ActionListener() {
+			/**
+			 *
+			 */
 			public void actionPerformed(ActionEvent e) {
-				int max = 2400; int min = 1; count++;
+				int max = 2400;
+				int min = 1;
+				count++;
 				String listM = "";
 				String fName = fNameText.getText();
 				String lName = lNameText.getText();
 				String pNumber = pNumberText.getText();
-				int time = (int) ((Math.random()* ((max - min) + 1)) + min);
+				int time = (int) ((Math.random() * ((max - min) + 1)) + min);
 				Member newMember = new Member(fName, lName, pNumber, time);
 				groupChat.add(newMember);
 				MemberSorter sortedMember = new MemberSorter(groupChat);
@@ -154,4 +169,3 @@ public class GUI {
 		frame.getContentPane().add(addMemberButton);
 	}
 }
-	
