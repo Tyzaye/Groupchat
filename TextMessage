@@ -17,30 +17,51 @@ public class TextMessage {
 	 * @param m
 	 * @param time
 	 */
-	public TextMessage(String t, Member m, int time) {
-
+	public TextMessage(String t, Member m, int ti) {
+		text = t;
+		member = m;
+		time = ti;
 	}
 
+// getters and setters
+	/**
+	 * @return
+	 */
 	public String getText() {
 		return text;
 	}
 
+	/**
+	 * @param text
+	 */
 	public void setText(String text) {
 		this.text = text;
 	}
 
+	/**
+	 * @return
+	 */
 	public Member getMember() {
 		return member;
 	}
 
+	/**
+	 * @param member
+	 */
 	public void setMember(Member member) {
 		this.member = member;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getTime() {
 		return time;
 	}
 
+	/**
+	 * @param time
+	 */
 	public void setTime(int time) {
 		this.time = time;
 	}
