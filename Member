@@ -20,10 +20,15 @@ public class Member implements Comparable<Member> {
 	 * @param phoneNumber
 	 * @param t
 	 */
-	public Member(String fname, String lname, String phoneNumber, int t) {
+	public Member(String fName, String lName, String pNumber, int t) {
 
+		firstName = fName;
+		lastName = lName;
+		phoneNumber = pNumber;
+		time = t;
 	}
 
+//getters and setters
 	/**
 	 * @return
 	 */
@@ -84,14 +89,20 @@ public class Member implements Comparable<Member> {
 		}
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public int compareTo(Member other) {
 		return (this.getTime() < other.getTime() ? -1 : (this.getTime() == other.getTime() ? 0 : 1));
 	}
-	
-	 @Override     
-	  public String toString() {         
-	    return " First Name: " + this.firstName + ", Last Name: " + this.lastName + ", Phone Number: " + this.phoneNumber +
-	    		", Time: " + this.time;     
-	  } 
+
+	/**
+	*
+	*/
+	@Override
+	public String toString() {
+		return " First Name: " + this.firstName + ", Last Name: " + this.lastName + ", Phone Number: "
+				+ this.phoneNumber + ", Time: " + this.time + "\n";
+	}
 }
