@@ -1,6 +1,4 @@
 
-
-
 /**
  * @author tyste
  *
@@ -13,9 +11,9 @@ public class ChatList {
 	/**
 		* 
 		*/
-		public ChatList() {
-			size = 0;
-		}
+	public ChatList() {
+		size = 0;
+	}
 
 	/**
 	 * @return
@@ -24,7 +22,10 @@ public class ChatList {
 		return size;
 	}
 
-	
+	/**
+	 * @param n
+	 * @return
+	 */
 	public TextMessage insertFirst(Node n) {
 		if (isEmpty()) {
 			head = n;
@@ -51,7 +52,7 @@ public class ChatList {
 	 * @return
 	 */
 	public TextMessage deleteFirstMessage() {
-		if(head == null) {
+		if (head == null) {
 			return head.getElement();
 		}
 		Node tail = head;
@@ -63,6 +64,7 @@ public class ChatList {
 		previous.next = null;
 		return tail.getElement();
 	}
+
 	/**
 	 * @return
 	 */
@@ -76,13 +78,13 @@ public class ChatList {
 	public String print() {
 		Node temp = head;
 		String tempString = "";
-		while (temp != null) {
+		while (temp != null) { // Will print the data of the of member and their message
 			tempString += temp.getElement().getMember().getFirstName();
 			tempString += " ";
 			tempString += temp.getElement().getMember().getLastName();
 			tempString += " Messaged: ";
 			tempString += temp.getElement().getText();
-			tempString += "\n"; 
+			tempString += "\n";
 			temp = temp.next;
 		}
 		return tempString;
