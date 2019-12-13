@@ -1,8 +1,5 @@
 
 
-/**
- * 
- */
 
 /**
  * @author tyste
@@ -42,7 +39,7 @@ public class ChatList {
 	/**
 	 * @return
 	 */
-	public TextMessage delete() {
+	public TextMessage deleteLastMessage() {
 		Node remove = head;
 		if (!isEmpty())
 			head = head.next;
@@ -50,6 +47,22 @@ public class ChatList {
 		return remove.getElement();
 	}
 
+	/**
+	 * @return
+	 */
+	public TextMessage deleteFirstMessage() {
+		if(head == null) {
+			return head.getElement();
+		}
+		Node tail = head;
+		Node previous = null;
+		while (tail.next != null) {
+			previous = tail;
+			tail = tail.next;
+		}
+		previous.next = null;
+		return tail.getElement();
+	}
 	/**
 	 * @return
 	 */
@@ -64,7 +77,12 @@ public class ChatList {
 		Node temp = head;
 		String tempString = "";
 		while (temp != null) {
-			tempString += temp.getElement();
+			tempString += temp.getElement().getMember().getFirstName();
+			tempString += " ";
+			tempString += temp.getElement().getMember().getLastName();
+			tempString += " Messaged: ";
+			tempString += temp.getElement().getText();
+			tempString += "\n"; 
 			temp = temp.next;
 		}
 		return tempString;
