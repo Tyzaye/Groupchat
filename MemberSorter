@@ -1,12 +1,47 @@
-import java.util.*;   
+import java.util.*;
 
-public class MemberSorter {     
-  static ArrayList<Member> Member = new ArrayList<>();       
-  public MemberSorter(ArrayList<Member> Member) {         
-    MemberSorter.Member = Member;     
-  }       
-  public static ArrayList<Member> sortByTime() {         
-    Collections.sort(Member);         
-    return Member;     
-  } 
+/**
+ * @author tyste
+ *
+ */
+@SuppressWarnings("rawtypes")
+public class MemberSorter implements Iterable {
+	private ArrayList<Member> member;
+
+	/**
+	 * 
+	 */
+	public MemberSorter() {
+		this.member = new ArrayList<Member>();
+	}
+
+	/**
+	 * @param member
+	 */
+	public MemberSorter(ArrayList<Member> member) {
+		this.member = member;
+	}
+
+	/**
+	 * 
+	 */
+	public void sortByTime() {
+		Collections.sort(member);
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	public String toString() {
+		return "List of Groupchat Members: [" + member + "]";
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	public Iterator iterator() {
+		return null;
+	}
 }
